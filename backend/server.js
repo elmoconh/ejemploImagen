@@ -13,7 +13,7 @@ app.use(bodyParser.json());
 
 // Configuración de la base de datos
 const db = mysql.createConnection({
-  host: process.env.DB_HOST || 'localhost',
+  host: process.env.DB_HOST || 'host.docker.internal',
   user: process.env.DB_USER || 'root',
   password: process.env.DB_PASSWORD || '',
   database: process.env.DB_NAME || 'mensajes_db',

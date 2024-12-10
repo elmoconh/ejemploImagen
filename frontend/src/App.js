@@ -7,7 +7,9 @@ function App() {
 
   // Cargar mensajes
   useEffect(() => {
-    axios.get('http://localhost:5001/mensajes')
+    axios.get('http://localhost:5000/mensajes')
+    //axios.get('http://host.docker.internal:5000/mensajes')
+
       .then(res => setMensajes(res.data))
       .catch(err => console.error(err));
   }, []);
@@ -15,7 +17,9 @@ function App() {
   // Enviar mensaje
   const enviarMensaje = () => {
     if (!nuevoMensaje) return;
-    axios.post('http://localhost:5001/mensajes', { contenido: nuevoMensaje })
+    axios.post('http://localhost:5000/mensajes', { contenido: nuevoMensaje })
+    //axios.post('http://host.docker.internal:5000/mensajes', { contenido: nuevoMensaje })
+    
       .then(res => setMensajes([...mensajes, res.data]))
       .catch(err => console.error(err));
     setNuevoMensaje('');
